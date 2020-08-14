@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub mod guessing_game {
     use std::io;
     use std::cmp::Ordering;

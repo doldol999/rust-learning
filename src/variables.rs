@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub mod variables {
     pub fn execute() {
         println!("VARIABLES");
