@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub mod enums {
   #[derive(Debug)]
   enum Cakes {
