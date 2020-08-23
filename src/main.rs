@@ -3,8 +3,12 @@ mod guessing_game;
 mod ownership;
 mod structs;
 mod enums;
+mod collections;
 
+#[allow(unused_imports)]
 use enums::enums::execute as executeEnums; // using as keyword to replace execute with executeEnums
+
+use collections::collections::execute_vector as vector;
 
 fn main() {
     // variables::variables::execute();
@@ -14,5 +18,7 @@ fn main() {
 
     // enums::enums::execute(); // relative path
     // crate::enums::enums::execute(); // absolute path
-    executeEnums(); // using use keyword
+    // executeEnums(); // using use keyword
+
+    vector(); // runst vector demos from collections module
 }
