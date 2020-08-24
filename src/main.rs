@@ -8,6 +8,7 @@ mod collections;
 #[allow(unused_imports)]
 use enums::enums::execute as executeEnums; // using as keyword to replace execute with executeEnums
 
+#[allow(unused_imports)]
 use collections::collections::execute_vector as vector;
 
 fn main() {
@@ -20,5 +21,6 @@ fn main() {
     // crate::enums::enums::execute(); // absolute path
     // executeEnums(); // using use keyword
 
-    vector(); // runst vector demos from collections module
+    // vector(); // runst vector demos from collections module
+    collections::collections::execute_string();
 }

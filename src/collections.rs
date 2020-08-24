@@ -66,7 +66,31 @@ pub mod collections {
   }
 
   pub fn execute_string() {
+    // Initializing a String
+    let s = &mut String::from("String version 1");
+    // or
+    let s2 = &mut "String version 2".to_string(); // use to_string() method to convert &str to String type
 
+    #[allow(unused_variables)]
+    let sample = "This is a string slice or string literal";
+
+    //Updating String via push and push_str
+    s.push('M'); // append a char
+    s2.push_str(", string"); // append a &str
+
+    //Concatenate via + operator
+    let s3 = s.to_string() + s2;
+
+    println!("s:{}, s2:{}, s3:{}", s, s2, s3);
+
+    // @NOTE we can only index or &s[0] if s is a &str or str type
+    println!("s[0]: {}", &s[0..1]);
+    println!("{}", &s3[s3.len() - 5..s3.len()]); // slicing value of string based on index
+
+    // Iterating over strings. Make sure to use .chars() to covert it to char collection first
+    for c in s.chars() {
+      println!("{}", c);
+    }
   }
 
   pub fn execute_hash_maps() {
