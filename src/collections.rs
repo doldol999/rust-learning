@@ -1,5 +1,6 @@
 #[allow(dead_code)]
 pub mod collections {
+  use std::collections::HashMap;
   pub fn execute_vector() {
     let mut v: Vec<i32> = Vec::new();
     v.push(1); // update a vector
@@ -94,6 +95,57 @@ pub mod collections {
   }
 
   pub fn execute_hash_maps() {
+    let mut passwords: HashMap<&str, &str> = HashMap::new();
 
+    // insert items inside hashmaps
+    passwords.insert("newPassword", "123rweawer");
+    passwords.insert("oldPassword", "123456");
+
+    println!("{:?}", passwords);
+    
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
+    let initial_scores = vec![10, 50];
+    
+    // Combine two vectors into a single hashmap
+    let mut scores: HashMap<_, _> =
+      teams.into_iter().zip(initial_scores.into_iter()).collect();
+
+    println!("{:?}", &scores);
+
+    // Accessing values
+    let old_password = &passwords.get("oldPassword");
+    println!("{:?}", old_password.unwrap());
+
+    let new_password = &passwords.get("newPassword");
+    println!("{:?}", new_password.unwrap());
+
+    // also
+
+    for (key, value) in &scores {
+      println!("{}:{}", key, value);
+    }
+
+    // Updating
+    /* Overwriting */ passwords.insert("oldPassword", "newOldPasswordValue");
+    println!("After Overwrite: {:?}", passwords);
+
+    // Entry method which inserts only if the key has no value
+    &scores.entry(String::from("Blue")).or_insert(11); // not succeeding because Blue already has a value
+    &scores.entry(String::from("Green")).or_insert(11);
+    println!("After Update: {:?}", &scores);
+
+    // Updating a Value Based on the Old Value
+    let text = "hello world wonderful world";
+
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0); 
+        // returns mutable value from or_insert
+        // insert 0 if word is not found
+        *count += 1; // add 1 to entry
+    }
+
+    println!("{:?}", map);
   }
 }

@@ -22,5 +22,6 @@ fn main() {
     // executeEnums(); // using use keyword
 
     // vector(); // runst vector demos from collections module
-    collections::collections::execute_string();
+    // collections::collections::execute_string();
+    collections::collections::execute_hash_maps();
 }
