@@ -4,6 +4,7 @@ mod ownership;
 mod structs;
 mod enums;
 mod collections;
+mod error_handling;
 
 #[allow(unused_imports)]
 use enums::enums::execute as executeEnums; // using as keyword to replace execute with executeEnums
@@ -23,5 +24,8 @@ fn main() {
 
     // vector(); // runst vector demos from collections module
     // collections::collections::execute_string();
-    collections::collections::execute_hash_maps();
+    // collections::collections::execute_hash_maps();
+
+    // error_handling::error_handling::unrecoverable::execute();
+    error_handling::error_handling::recoverable::execute();
 }
