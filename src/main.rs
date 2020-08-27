@@ -27,5 +27,6 @@ fn main() {
     // collections::collections::execute_hash_maps();
 
     // error_handling::error_handling::unrecoverable::execute();
-    error_handling::error_handling::recoverable::execute();
+    // error_handling::error_handling::recoverable::execute();
+    error_handling::error_handling::recoverable::execute_error_propagation();
 }

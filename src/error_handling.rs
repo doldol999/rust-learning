@@ -16,6 +16,7 @@ pub mod error_handling {
   
   pub mod recoverable {
     use std::fs::File;
+    use std::io;
     use std::io::ErrorKind;
 
     pub fn execute() {
@@ -69,8 +70,30 @@ pub mod error_handling {
       println!("{:?}", File::open("assets/file3.txt").expect("Failed to load file.")); // Same with ^ but adds in a custom error message
     }
 
+    // sample of error propagating function
+    fn get_file(f: Result<std::fs::File, io::Error>) -> Result<File, io::Error> {
+      match f {
+        Ok(file) => Ok(file),
+        Err(err) => Err(err),
+      }
+    }
+
+    fn get_file_2(f: Result<std::fs::File, io::Error>) -> Result<File, io::Error> {
+      Ok(f?)
+    }
+
     pub fn execute_error_propagation() {
-      
+      let f = File::open("assets/file.txt");
+      match get_file(f) {
+        Ok(file) => println!("{:?}", file),
+        Err(error) => panic!("{:?}", error),
+      }
+
+      let f = File::open("assets/file2.txt");
+      match get_file_2(f) {
+        Ok(file) => println!("{:?}", file),
+        Err(error) => panic!("{:?}", error),
+      }
     }
   }
  }
