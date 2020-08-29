@@ -2,25 +2,30 @@
 pub mod generics {
   use rand::Rng;
 
-  fn largest(list: Vec<u32>) -> u32 {
-    let mut largest = list[0];
+  #[derive(Debug)]
+  struct People<T> {
+    name: String,
+    age: T,
+  }
 
-    for i in list {
-      if i > largest { largest = i }
+  impl<T> People<T> {
+    fn new(name: String, age: T) -> People<T> {
+      People {
+        name,
+        age
+      }
     }
+  }
 
-    largest
+  impl<T> People<T> {
+    fn get_age(&self) -> &T {
+      &self.age
+    }
   }
 
   pub fn execute() {
-    let size = rand::thread_rng().gen_range(1, 100);
-
-    let mut number_list: Vec<u32> = Vec::new();
-
-    for _ in 0..size {
-      number_list.push(rand::thread_rng().gen_range(1, 100))
-    }
-
-    println!("The largest number in the list is {} with {} items.", largest(number_list), size);
+    let mut person = People::new(String::from("Dextre Linus Lumbao"), rand::thread_rng().gen_range(0, 3));
+    person.name = String::from("Dextre Linus Cadiz Lumbao");
+    println!("{}, {}", person.name, person.age);
   }
 }
