@@ -5,6 +5,8 @@ mod structs;
 mod enums;
 mod collections;
 mod error_handling;
+mod generics;
+mod binary_search;
 
 #[allow(unused_imports)]
 use enums::enums::execute as executeEnums; // using as keyword to replace execute with executeEnums
@@ -28,5 +30,9 @@ fn main() {
 
     // error_handling::error_handling::unrecoverable::execute();
     // error_handling::error_handling::recoverable::execute();
-    error_handling::error_handling::recoverable::execute_error_propagation();
+    // error_handling::error_handling::recoverable::execute_error_propagation();
+
+    // binary_search::binary_search::execute();
+    
+    generics::generics::execute();
 }
