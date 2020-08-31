@@ -2,7 +2,7 @@
 pub mod binary_search {
   use rand::Rng;
 
-  fn largest(list: &[u32]) -> u32 {
+  fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
 
     for &i in list {
@@ -12,7 +12,7 @@ pub mod binary_search {
     largest
   }
 
-  fn binary_searched_largest(list: Vec<u32>) -> u32 {
+  fn binary_searched_largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mid = list.len() / 2;
 
     let first_half = list.split_at(mid).0;
@@ -26,16 +26,6 @@ pub mod binary_search {
     return s_largest
   }
 
-  fn linear_searched_largest(list: Vec<u32>) -> u32 {
-    let mut largest = list[0];
-
-    for i in list {
-      if i > largest { largest = i }
-    }
-
-    largest
-  }
-
   pub fn execute() {
     let size = rand::thread_rng().gen_range(1, 100);
 
@@ -45,6 +35,10 @@ pub mod binary_search {
       number_list.push(rand::thread_rng().gen_range(1, 100))
     }
 
-    println!("The largest number in the list is {} with {} items.", linear_searched_largest(number_list), size);
+    println!(
+      "The largest number in the list is {} with {} items.",
+      binary_searched_largest(&number_list),
+      size
+    );
   }
 }
