@@ -33,7 +33,7 @@ pub mod traits {
       // stream: `f`. Returns `fmt::Result` which indicates whether the
       // operation succeeded or failed. Note that `write!` uses syntax which
       // is very similar to `println!`.
-        write!(f, "{}", self)
+      write!(f, "{}", self)
     }
   }
   
