@@ -36,7 +36,8 @@ pub mod traits {
         write!(f, "{}", self)
     }
   }
-  
+
+  #[allow(dead_code)]
   impl People {
     fn new(name: String, age: u8) -> People {
       People {
@@ -72,7 +73,8 @@ pub mod traits {
       String::from("st")
     }
   }
-  
+
+  #[allow(dead_code)]
   impl People {
     // implements trait as a parameter
     fn notify_birthday(notif: &(impl Summary + Display)) {
@@ -82,10 +84,12 @@ pub mod traits {
 
   // a useful way of using Traits in a generic function
   // this is an example of a Trait Bound Syntax
+  #[allow(dead_code)]
   fn display<T: Display>(item: T) {
     println!("{}", item);
   }
 
+  #[allow(dead_code)]
   pub fn execute() {
     let mut person = People::new(String::from("Dextre Linus Lumbao"), rand::thread_rng().gen_range(0, 3));
     person.name = String::from("Dextre Linus Cadiz Lumbao");

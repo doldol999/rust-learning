@@ -8,6 +8,7 @@ mod error_handling;
 mod generics;
 mod binary_search;
 mod traits;
+mod lifetime;
 
 #[allow(unused_imports)]
 use enums::enums::execute as executeEnums; // using as keyword to replace execute with executeEnums
@@ -37,5 +38,7 @@ fn main() {
     
     // generics::generics::execute();
 
-    traits::traits::execute();
+    // traits::traits::execute();
+
+    lifetime::lifetime::execute();
 }
