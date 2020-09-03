@@ -2,7 +2,7 @@
 #[allow(unused_variables)]
 pub mod structs {
     #[derive(Debug)] //this allows us to print structs contents
-    struct User {
+    pub struct User {
         /**
          * we used the owned String type rather than the &str string slice type. 
          * This is a deliberate choice because we want instances of this struct to own 

@@ -3,6 +3,8 @@ pub mod lifetime {
   // &i32        // a reference
   // &'a i32     // a reference with an explicit lifetime
   // &'a mut i32 // a mutable reference with an explicit lifetime
+  // let s: &'static str = "I have a static lifetime.";
+  // 'static, which means that this reference can live for the entire duration of the program
 
   // Lifetime annotations in function signatures
   fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
