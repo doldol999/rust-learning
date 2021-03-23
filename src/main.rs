@@ -1,44 +1,32 @@
-mod variables;
-mod guessing_game;
-mod ownership;
-mod structs;
-mod enums;
-mod collections;
-mod error_handling;
-mod generics;
-mod binary_search;
-mod traits;
-mod lifetime;
+mod menu;
 
-#[allow(unused_imports)]
-use enums::enums::execute as executeEnums; // using as keyword to replace execute with executeEnums
-
-#[allow(unused_imports)]
-use collections::collections::execute_vector as vector;
+use std::io::stdin;
+use menu::{run, show_options};
 
 fn main() {
-    // variables::variables::execute();
-    // guessing_game::guessing_game::execute();
-    // ownership::ownership::execute();
-    // structs::structs::execute();
+  println!("Hello Rust World!"); // Chapter 1
 
-    // enums::enums::execute(); // relative path
-    // crate::enums::enums::execute(); // absolute path
-    // executeEnums(); // using use keyword
+  loop {
+    let mut selection = String::from("");
+    let options = show_options();
 
-    // vector(); // runst vector demos from collections module
-    // collections::collections::execute_string();
-    // collections::collections::execute_hash_maps();
+    println!("What would you like to try? {:?}", options);
 
-    // error_handling::error_handling::unrecoverable::execute();
-    // error_handling::error_handling::recoverable::execute();
-    // error_handling::error_handling::recoverable::execute_error_propagation();
+    stdin()
+      .read_line(&mut selection)
+      .expect("Failed to read line");
 
-    // binary_search::binary_search::execute();
-    
-    // generics::generics::execute();
+    let selection = selection.trim();
 
-    // traits::traits::execute();
-
-    lifetime::lifetime::execute();
+    if options.contains(&selection) {
+      run(selection);
+    } else {
+      if selection.is_empty() {
+        println!("No selection found. Exiting program now.");
+        break;
+      } else {
+        println!("Unknown option. Try again, or just hit ENTER if you want to exit.");
+      }
+    }
+  }
 }

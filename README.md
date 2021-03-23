@@ -1,2 +1,3 @@
 # rust-learning
-This is me learning Rust
+
+My very own Rust language notes since 2020.
